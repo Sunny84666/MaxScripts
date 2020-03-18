@@ -41,9 +41,8 @@ rollout SunnySkin "SunnySkin" width:165 height:300
 	)
 	
 	on EditEnvelopes changed state do 
-		if state == on then skinOps.weightTool $.modifiers[#Skin]
-		else skinOps.weightTool $.modifiers[#Skin]
-		
+		if state == on then (subobjectLevel = 1)
+		else subobjectLevel = 0
 )
 
 createDialog SunnySkin
