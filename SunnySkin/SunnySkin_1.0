@@ -3,8 +3,10 @@ rollout SunnySkin "SunnySkin" width:165 height:300
 	GroupBox grp_SkinandEffect "Skin and Bone" pos:[6,4] width:152 height:47
 	checkbutton SkinReady "Ready to Skin" pos:[14,21] width:106 height:24
 	spinner BoneEffectNum "" pos:[120,24] width:32 height:16 enabled:true range:[1,20,3] type:#integer scale:1 toolTip:"Bone Effect" 
+
 	groupBox grp_EnandWeight "Envelope and Weight" pos:[6,60] width:152 height:177
 	checkButton EditEnvelopes "Envelopes" pos:[15,80] width:62 height:55 enabled:false		
+	
 	
 	on SunnySkin open do  --自定CallBack 指令，判斷選取的目標身上有沒有帶skin
 	(	
@@ -14,11 +16,7 @@ rollout SunnySkin "SunnySkin" width:165 height:300
 			(
 				SkinCheck = $.modifiers[#skin]
 				if (SkinCheck != undefined)
-				then 
-				(
-					EditEnvelopes.enabled = true   --把這些變數放裡面，才能跟按鈕的enabled做連動
-					BoneEffectNum.value = $.modifiers[#Skin].bone_Limit
-				)
+				then EditEnvelopes.enabled = true   --把這些變數放裡面，才能跟按鈕的enabled做連動
 				else EditEnvelopes.enabled = false
 			)
 			if selection.count == 0 do EditEnvelopes.enabled = false
@@ -46,7 +44,8 @@ rollout SunnySkin "SunnySkin" width:165 height:300
 					SkinReady.state = off
 				)
 				else			
-				SkinReady.text = "Ready??"					
+				SkinReady.text = "Ready??"
+					
 			)	
 		)
 		
