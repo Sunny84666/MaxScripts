@@ -1,3 +1,6 @@
+
+global GetSelSkin    --一定要先宣告Callback function的類型,不然重開時會跳錯誤
+	
 rollout SunnySkin "SunnySkin" width:165 height:300
 (
 	GroupBox grp_SkinandEffect "Skin and Bone" pos:[6,4] width:152 height:47
@@ -67,4 +70,5 @@ rollout SunnySkin "SunnySkin" width:165 height:300
 	--關閉視窗就刪掉自訂義的callback
 )
 
+callbacks.removeScripts #selectionSetChanged id:#SunnyCallbackID
 createDialog SunnySkin
